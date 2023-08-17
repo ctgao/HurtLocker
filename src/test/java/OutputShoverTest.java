@@ -58,4 +58,24 @@ public class OutputShoverTest {
         Assert.assertNotNull(errorBasket);
         Assert.assertEquals(expectedTwo, errorBasket.get(noprice));
     }
+
+    @Test
+    public void printReceiptTest(){
+        //Given
+        String expected =   "Name:    Milk\t\tseen: 2 times\n" +
+                            "=============\t\t=============\n" +
+                            "Price:   3.23\t\tseen: 1 time \n" +
+                            "-------------\t\t-------------\n" +
+                            "Price:   1.23\t\tseen: 1 time \n\n" +
+                            "Name:   Bread\t\tseen: 2 times\n" +
+                            "=============\t\t=============\n" +
+                            "Price:   1.23\t\tseen: 2 times\n" +
+                            "-------------\t\t-------------\n\n" +
+                            "Errors       \t\tseen: 2 times\n";
+        HashMap<String, ShoppingBasket> receipt = OutputShover.bagItUp(createTesterList());
+        //When
+        String actual = OutputShover.printReceipt(receipt);
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }

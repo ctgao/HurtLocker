@@ -23,6 +23,17 @@ public class JerkSONParsingTest {
     }
 
     @Test
+    public void normalizeTest() {
+        //Given
+        String wordWithNum = "g0ogle";
+        String expected = "google";
+        //When
+        String actual = JerkSONParser.normalize(wordWithNum);
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void capitalizeTest() {
         //Given
         String toggleInput = "tOgGle";
@@ -33,7 +44,7 @@ public class JerkSONParsingTest {
         Assert.assertEquals(expected, actual);
     }
     @Test
-    public void capitalizeTest1() {
+    public void capitalizeEmptyTest() {
         //Given
         String expected = "";
         //When

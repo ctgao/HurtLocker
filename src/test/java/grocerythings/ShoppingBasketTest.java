@@ -31,4 +31,16 @@ public class ShoppingBasketTest {
         //Then
         Assert.assertEquals(expected, actual);
     }
+    @Test
+    public void countTest(){
+        //Given
+        int expected = 2;
+        ShoppingBasket basket = new ShoppingBasket();
+        basket.incrementPrice(3.5);
+        //When
+        basket.incrementPrice(1.3);
+        int actual = basket.count();
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }
